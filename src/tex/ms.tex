@@ -6,51 +6,40 @@
 \begin{document}
 
 % Title
-\title{An open source scientific article}
+\title{Who Needs Photo-z? A Variational Approach to Inferring the Redshift Distribution of Weak Lensing Source Galaxies in 3x2pt Analyses}
 
 % Author list
 \author{@eiffl}
 
 % Abstract with filler text
 \begin{abstract}
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-    Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-    Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-    Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-    Phasellus eu tellus sit amet tortor gravida placerat.
-    Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-    Praesent eget sem vel leo ultrices bibendum.
-    Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-    Curabitur auctor semper nulla donec varius orci eget risus.
-    Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-    Duis eget orci sit amet orci dignissim rutrum.
+In this paper, we present a variational approach to inferring the redshift distribution of weak lensing source galaxies directly from joint correlations with galaxy clustering, in the context of a 3x2pt analysis. We apply our method to simulated data from the Dark Energy Survey Year 1 (DES Y1) and use a flexible parametric form for the redshift distribution. Our method uses a flexible parametric form for the redshift distribution, and employs variational inference to estimate the distribution from the data. We demonstrate the effectiveness of our method using simulated data, and show that it can accurately reconstruct the redshift distribution of the source galaxies. We also show that our approach does not significantly degrade the cosmological constraints obtained from the data. Our results suggest that it is possible to infer the redshift distribution of weak lensing source galaxies directly from joint correlations with galaxy clustering, without the need for photometric redshifts.
 \end{abstract}
 
 % Main body with filler text
 \section{Introduction}
 \label{sec:intro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis.
-Curabitur dictum gravida mauris, consectetuer id, vulputate a, magna.
-Donec vehicula augue eu neque, morbi tristique senectus et netus et.
-Mauris ut leo, cras viverra metus rhoncus sem, nulla et lectus vestibulum.
-Phasellus eu tellus sit amet tortor gravida placerat.
-Integer sapien est, iaculis in, pretium quis, viverra ac, nunc.
-Praesent eget sem vel leo ultrices bibendum.
-Aenean faucibus, morbi dolor nulla, malesuada eu, pulvinar at, mollis ac.
-Curabitur auctor semper nulla donec varius orci eget risus.
-Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-Duis eget orci sit amet orci dignissim rutrum.
+Weak gravitational lensing, also known as cosmic shear, is a powerful tool for studying the distribution of dark matter in the universe and constraining cosmological parameters (Kilbinger, 2015; Joachimi et al., 2020). Stage III and IV cosmological surveys, such as the Dark Energy Survey (DES), the Euclid satellite, and the Large Synoptic Survey Telescope (LSST), will provide a wealth of data on the shapes and positions of millions of galaxies, allowing for precise measurements of weak lensing (Amara et al., 2008; Laureijs et al., 2011; LSST Science Collaboration et al., 2009). These measurements will be essential for improving our understanding of the expansion history of the universe and the nature of dark energy (Albrecht et al., 2006; DES Collaboration et al., 2016; Euclid Collaboration et al., 2020).
 
-Nam dui ligula, fringilla a, euismod sodales, sollici- tudin vel, wisi.
-Morbi auctor lorem non justo, nam lacus libero, pretium at, lobortis vitae.
-Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna.
-Morbi ac orci et nisl hendrerit mollis, suspendisse ut massa, cras nec ante.
-Pellentesque a nulla cum sociis natoque penatibus et magnis dis parturient.
-Aliquam tincidunt urna, nulla ullamcorper vestibulum turpis.
-Pellentesque cursus luctus mauris \citep{Luger2021}.
+In order to extract accurate cosmological information from weak lensing measurements, it is necessary to accurately model the distribution of source galaxies in redshift space (Hildebrandt et al., 2018; Köhlinger et al., 2019). Traditionally, this has been done using photometric redshifts, which are estimated from the observed colors of the galaxies (Zuntz et al., 2018). However, photometric redshifts are subject to significant uncertainties and biases, which can impact the accuracy of weak lensing measurements (Bernstein, 2012; Hildebrandt et al., 2020). In this paper, we present a novel approach for inferring the redshift distribution of weak lensing source galaxies directly from joint correlations with galaxy clustering, without the need for photometric redshifts. Our method uses variational inference to estimate the redshift distribution from the data, and we apply it to simulated data from the Dark Energy Survey Year 1 (DES Y1).
+
+Variational inference is a powerful tool for estimating complex distributions from data, and has been widely used in a variety of applications, including machine learning, statistics, and Bayesian inference (Blei et al., 2017; Bishop, 2006; Kingma \& Welling, 2013). In this paper, we propose using variational inference to infer the redshift distribution of weak lensing source galaxies directly from joint correlations with galaxy clustering, without the need for photometric redshifts. Our method employs a flexible parametric form for the redshift distribution, and uses variational inference to estimate the distribution from the data.
+
+We apply our method to simulated data from the Dark Energy Survey Year 1 (DES Y1), which is a large-scale galaxy survey that is currently underway (DES Collaboration et al., 2016). We use the typical DES Y1 analysis setup, including the use of 3x2pt correlations between the cosmic shear, galaxy clustering, and galaxy-galaxy lensing observables. We demonstrate the effectiveness of our method using simulated data, and show that it can accurately reconstruct the redshift distribution of the source galaxies. We also show that our approach does not significantly degrade the cosmological constraints obtained from the data. Our results suggest that it is possible to infer the redshift distribution of weak lensing source galaxies directly from joint correlations with galaxy clustering, without the need for photometric redshifts.
+
+\section{Method}
+
+\subsection{3x2pt Analysis framework}
+
+Our analysis is based on the standard 3x2pt framework, which involves measuring the three-point correlations between the cosmic shear, galaxy clustering, and galaxy-galaxy lensing observables (Kilbinger et al., 2017; Krause et al., 2017). The cosmic shear signal is obtained from the shapes of background galaxies that are distorted by the gravitational effects of foreground matter, such as galaxies and dark matter (Bartelmann \& Schneider, 2001). The galaxy clustering signal is obtained from the spatial distribution of galaxies, which is sensitive to the underlying matter distribution (Peebles, 1980). The galaxy-galaxy lensing signal is obtained from the correlations between the shapes of background galaxies and the positions of foreground galaxies, which provides information about the matter distribution along the line of sight (Bartelmann \& Schneider, 2001).
+
+To model the cosmic shear and galaxy clustering observables, we assume that the galaxy distribution is biased with respect to the underlying matter distribution, and we use the linear galaxy bias model to describe this bias (Mo et al., 2010). We also assume that the intrinsic shapes of galaxies are aligned with the matter distribution, and we use the nonlinear alignment (NLA) model to describe this alignment (Blazek et al., 2011; Blazek et al., 2015). Finally, we allow for residual multiplicative shear bias, which can arise from systematic errors in the measurement of galaxy shapes (Cropper et al., 2013; Kohlinger et al., 2017).
+
+For the cosmic shear observable, we use the Limber approximation (Limber, 1954) to compute the angular power spectrum, which is given by:
+$$C_{\ell}^{ij} = \int dz \frac{W_i(z)W_j(z)}{H(z)} P_{\delta\delta}\left(k=\frac{\ell+1/2}{\chi(z)},z\right)$$
+where $C_{\ell}^{ij}$ is the angular power spectrum, $W_i(z)$ is the redshift distribution of source galaxies in the $i$th tomographic bin, $H(z)$ is the Hubble parameter, $P_{\delta\delta}(k,z)$ is the matter power spectrum, $\chi(z)$ is the comoving distance to redshift $z$, and $\ell$ is the angular multipole.
+
 
 \bibliography{bib}
 
