@@ -12,7 +12,9 @@
 <img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
 </a>
 </p>
-My attempt at using ChatGPT to accelerate a research project. An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
+
+My attempt at using ChatGPT to accelerate a research project. 
+An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
 
 Here is the question: *using ChatGPT, how long would it take to go from a rough idea to a ready-to-submit paper?*
 
