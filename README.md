@@ -1,7 +1,5 @@
 # LLMAssistedResearch
 <p align="center">
-<br>
-<br>
 <a href="https://github.com/eiffl/LLMAssistedResearch/actions/workflows/build.yml">
 <img src="https://github.com/eiffl/LLMAssistedResearch/actions/workflows/build.yml/badge.svg?branch=main" alt="Article status"/>
 </a>
