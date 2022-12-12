@@ -22,6 +22,18 @@ Obviously in a second stage, a human would need to go over the draft and do some
 
 **Note**: I am not taking sides on the question "should we use these models to write papers?" I am interested in the question "*can* we use these models to write papers?", and by that I mean can they be helpful to do science. I am absolutely not interested in completely automatically writing a paper from the title and list of authors (which it could do, but that wouldn't be very convincing if an expert read it), but whether you can write a paper by having a conversation with it and guiding it towards what you want.
 
+## The things that blew my mind
+
+#### It understands math and can modify equations from english prompts
+> ChatGPT: In this analysis, we propose using a mixture of Beta distributions to model the redshift distribution for each tomographic bin. The redshift distribution is given by:
+>$p(z) = \sum_{k=1}^{K} w_k \cdot Beta(z; \alpha_k, \beta_k)$
+
+> EiffL: Can you modify this formula to include a rescaling of the distribution so that it is supported between [0, z_{max}] ?
+
+> ChatGPT: Sure, here is a revised version of the previous paragraph that includes a formula for the mixture of Beta distributions model with a rescaling of the distribution:
+>"In this analysis, we propose using a mixture of Beta distributions to model the redshift distribution for each tomographic bin. The redshift distribution is given by:
+>$p(z) = \frac{1}{z_{max}} \sum_{k=1}^{K} w_k \cdot Beta\left(\frac{z}{z_{max}}; \alpha_k, \beta_k\right)$
+
 ## Here is what I did so far
 
 ### Step I: The idea (no ChatGPT inputs there)
