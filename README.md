@@ -30,7 +30,7 @@ I did try to use ChatGPT to brainstorm a few project ideas, but nothing very int
 ### Step II: Getting the results working (a tiny amount of ChatGPT here for coding)
 It took me a couple of hours to make this [notebook](main/notebooks/NzInference.ipynb). ChatGPT was no help there, the code I needed was very specialized, and also I reused a bunch of existing code. It did generate a mostly correct code for a normalizing flow though ^^ but in the end I used my own. 
 
-If you are curious btw, here are my posteriors on the source galaxy n(z) in a DES Y1 3x2pt analysis, without assuming any knowledge of photometric redshifts for the lensing source galaxies: 
+For the experts: If you are curious btw, here are my posteriors on the source galaxy n(z) in a DES Y1 3x2pt analysis, without assuming any knowledge of photometric redshifts for the lensing source galaxies: 
 
 ![image](https://user-images.githubusercontent.com/861591/206940145-5175eb90-d641-4918-a6b4-1c0ade2ac478.png)
 
