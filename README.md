@@ -16,6 +16,10 @@ My attempt at using ChatGPT to accelerate a research project.
 
 Here is the question: **using ChatGPT, how long would it take to go from a rough idea to a ready-to-submit paper?**
 
+**[Current State]** Here is what I got out of *45 mins* of chatting with ChatGPT [here](https://github.com/EiffL/LLMAssistedResearch/blob/main-pdf/ms.pdf). The text comes from our conversation, where I tell it what I'm looking for, and provide feedback on the text it gives me. I have not written a single sentence there.
+
+Obviously in a second stage, a human would need to go over the draft and do some editing. Experts may be able to notice a few things that are not quite right, in particular in the citations. 
+
 **Note**: I am not taking sides on the question "should we use these models to write papers?" I am interested in the question "*can* we use these models to write papers?", and by that I mean can they be helpful to do science. I am absolutely not interested in completely automatically writing a paper from the title and list of authors (which it could do, but that wouldn't be very convincing if an expert read it), but whether you can write a paper by having a conversation with it and guiding it towards what you want.
 
 ## Here is what I did so far
@@ -45,19 +49,27 @@ in the typical style of MNRAS articles. The paper will show how to perform joint
 inference of weak lensing source galaxy redshift distribution and cosmological 
 parameters in a 3x2pt analysis, without needing any photometric redshift information. 
 We will use variational inference to infer these distributions, and will demonstrate 
-the approach in a DES Y1 3x2pt setting. Can you suggest a title for this article?
+the approach in a DES Y1 3x2pt setting. 
+Can you suggest a title for this article?
 ```
 This is more or less all I need to tell it about the project at the beginning, it will generate a very appropriate, and I can interact with it to change it to my liking. It then generates automatically the abstract if I ask it.
 
 For the introduction, it takes a tiny bit more work/prompt engineering to get it to write in the correct style. For instance I use the following prompt to make it uses proper citations, and make sure it includes an opening contextualisation pragraph:
 
 ```
-Ok, now, please write the introduction for this paper, in the typical style of an MNRAS paper. Include specific citations in the format (Author et al., year) where appropriate. The introduction should begin by a paragraph introducing weak lensing in the context of Stage III and Stage IV cosmological surveys.
+Ok, now, please write the introduction for this paper, in the typical style of 
+an MNRAS paper. Include specific citations in the format (Author et al., year) 
+where appropriate. The introduction should begin by a paragraph introducing weak 
+lensing in the context of Stage III and Stage IV cosmological surveys.
 ```
 
 And it will generate a bunch of text, in particular saying things that are exactly on point, without me having to explain anything more than the previous prompts:
 >Traditionally, this has been done using photometric redshifts, which are estimated from the observed colors of the galaxies (Zuntz et al., 2018). However, photometric redshifts are subject to significant uncertainties and biases, which can impact the accuracy of weak lensing measurements (Bernstein, 2012; Hildebrandt et al., 2020). In this paper, we present a novel approach for inferring the redshift distribution of weak lensing source galaxies directly from joint correlations with galaxy clustering, without the need for photometric redshifts. Our method uses variational inference to estimate the redshift distribution from the data, and we apply it to simulated data from the Dark Energy Survey Year 1 (DES Y1).
 
 Note however that **it will struggle with citations, you should replace/check all of them by hand afterwards**. The very famous and typical ones are ok, like (Kilbinger et al. 2015), or (Laureijs et al. 2011). But this is because these are very common, there is very low variance there. For slightly more specific citations, it will pick the name of a likely author in this field, and a likely year ^^' Above all else, do not attempt to get it to give you the full bibliographic record for a citation, it's hilarious, it associates random authors, and even generates arxiv numbers that point to completely different papers (this is because there is no pattern to arxiv codes appart from the date).
+
+
+After about 45 mins (not helped by the OpenAI server being overloaded), I got two pages of first draft text for an introduction and first part of the methodology section see [here](https://github.com/EiffL/LLMAssistedResearch/blob/main-pdf/ms.pdf). I struggled a bit to get it to write exactly the equations I was looking for, so this is the best I could do, and I would need to manually change a few things later. 
+
 
 An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
