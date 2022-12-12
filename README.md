@@ -16,7 +16,7 @@ My attempt at using ChatGPT to accelerate a research project.
 
 Here is the question: **using ChatGPT, how long would it take to go from a rough idea to a ready-to-submit paper?**
 
-**[Current State]** Here is what I got out of *45 mins* of chatting with ChatGPT [here](https://github.com/EiffL/LLMAssistedResearch/blob/main-pdf/ms.pdf). The text comes from our conversation, where I tell it what I'm looking for, and provide feedback on the text it gives me. I have not written a single sentence there.
+**[Current State]** Here is what I got out of *1h30 mins* of chatting with ChatGPT [here](https://github.com/EiffL/LLMAssistedResearch/blob/main-pdf/ms.pdf). The text comes from our conversation, where I tell it what I'm looking for, and provide feedback on the text it gives me. I have not written a single sentence there.
 
 Obviously in a second stage, a human would need to go over the draft and do some editing. Experts may be able to notice a few things that are not quite right, in particular in the citations. 
 
