@@ -1,5 +1,5 @@
 % Define document class
-\documentclass[twocolumn]{aastex631}
+\documentclass[twocolumn,draft]{aastex631}
 \usepackage{showyourwork}
 
 % Begin!
@@ -31,9 +31,9 @@ Variational inference is a powerful tool for estimating complex distributions fr
 
 We apply our method to simulated data from the Dark Energy Survey Year 1 (DES Y1), which is a large-scale galaxy survey that is currently underway (DES Collaboration et al., 2016). We use the typical DES Y1 analysis setup, including the use of 3x2pt correlations between the cosmic shear, galaxy clustering, and galaxy-galaxy lensing observables. We demonstrate the effectiveness of our method using simulated data, and show that it can accurately reconstruct the redshift distribution of the source galaxies. We also show that our approach does not significantly degrade the cosmological constraints obtained from the data. Our results suggest that it is possible to infer the redshift distribution of weak lensing source galaxies directly from joint correlations with galaxy clustering, without the need for photometric redshifts.
 
-\section{Method}
+The paper is organized as follows. In Section 2, we describe the weak lensing observables and the 3x2pt analysis method used in this work. In Section 3, we introduce our approach for inferring the redshift distribution of weak lensing source galaxies using variational inference. In Section 4, we present the results of our analysis on simulated DES Y1 data, and compare our results to those obtained using photometric redshifts. Finally, in Section 5, we discuss the implications of our results and conclude.
 
-\subsection{3x2pt Analysis framework}
+\section{Weak Lensing and the 3x2pt Analysis}
 
 The 3x2pt methodology is a statistical framework for analyzing weak gravitational lensing, galaxy clustering, and galaxy-galaxy lensing measurements in order to constrain cosmological parameters. In this section, we describe the mathematical formulae used to compute the cosmic shear, galaxy clustering, and galaxy-galaxy angular power spectra, $C_\ell$, which are the main observables in a 3x2pt analysis.
 
@@ -64,7 +64,7 @@ These formulae are derived from the general expressions for the cosmic shear, ga
 %$$C_{\ell}^{ij} = \int dz \frac{W_i(z)W_j(z)}{H(z)} P_{\delta\delta}\left(k=\frac{\ell+1/2}{\chi(z)},z\right)$$
 %where $C_{\ell}^{ij}$ is the angular power spectrum, $W_i(z)$ is the redshift distribution of source galaxies in the $i$th tomographic bin, $H(z)$ is the Hubble parameter, $P_{\delta\delta}(k,z)$ is the matter power spectrum, $\chi(z)$ is the comoving distance to redshift $z$, and $\ell$ is the angular multipole.
 
-\subsubsection{3x2pt Systematics Modeling}
+\subsection{3x2pt Systematics Modeling}
 
 In a 3x2pt analysis, it is important to carefully model and account for potential sources of systematic error, such as intrinsic alignments of galaxies and uncertainties in the galaxy bias. In this subsection, we describe the systematics modeling approach used in the DES Y1 analysis (Köhlinger et al., 2019), which is based on the NLA model for intrinsic alignments and a redshift-dependent linear bias model.
 
@@ -87,6 +87,36 @@ The redshift-dependent linear bias model is a simple model that describes the re
 \end{equation}
 where $b(z)$ is the redshift-dependent linear bias. The bias is typically modeled as a polynomial function of redshift, and is fit to the data using the galaxy clustering and galaxy-galaxy lensing observables.
 
+\section{Inferring Redshift Distributions with Variational Inference}
+
+
+\subsection{Introduction to variational inference}
+
+Variational inference is a powerful tool for estimating complex distributions from data. It is a form of approximate Bayesian inference, which seeks to find a tractable distribution that approximates the true posterior distribution of the model parameters. This is typically done by minimizing the Kullback-Leibler divergence between the approximate distribution and the true posterior (Blei et al., 2017).
+
+In the context of our analysis, we are interested in inferring the redshift distribution of weak lensing source galaxies from the data. This is a complex problem, as the redshift distribution is a high-dimensional function that depends on both the cosmological parameters, $\theta_{cosmo}$, and the parameters describing the redshift distributions, $\theta_{nzs}$. We can use variational inference to find an approximate distribution $q(\theta_{cosmo},\theta_{nzs})$ that approximates the true posterior distribution $p(\theta_{cosmo},\theta_{nzs}|d)$, where $d$ is the data.
+
+To do this, we define the variational objective, also known as the evidence lower bound (ELBO), as follows:
+\begin{equation}
+\text{ELBO} = \mathbb{E}_{q(\theta_{cosmo},\theta_{nzs})} \left[ \log p(d|\theta_{cosmo},\theta_{nzs}) \right] - \text{KL}\left[ q(\theta_{cosmo},\theta_{nzs}) | p(\theta_{cosmo},\theta_{nzs})\right]
+\end{equation}
+where $\mathbb{E}{q(\theta{cosmo},\theta_{nzs})}$ denotes the expectation with respect to the approximate distribution $q(\theta_{cosmo},\theta_{nzs})$, $\log $
+
+\subsection{Parametric form for the redshift distribution}
+
+One of the key challenges in modeling the redshift distribution of weak lensing source galaxies is finding a flexible and accurate parametric form for the distribution. In this analysis, we propose using a mixture of Beta distributions to model the redshift distribution for each tomographic bin.
+
+Beta distributions are a family of continuous probability distributions defined on the interval [0,1]. They have two shape parameters, which control the location and shape of the distribution, and are commonly used to model proportions and probabilities. Mixtures of Beta distributions allow for more flexibility and modeling power than using a single Beta distribution, and can accurately capture a wide range of redshift distributions.
+
+The redshift distribution for each tomographic bin is modeled as a mixture of K Beta distributions:
+
+\begin{equation}
+p(z) = \frac{1}{z_{max}} \sum_{k=1}^{K} w_k \cdot Beta\left(\frac{z}{z_{max}}; \alpha_k, \beta_k\right)
+\end{equation}
+
+where $w_k$ is the weight of the kth component, and $\alpha_k$ and $\beta_k$ are the shape parameters of the kth Beta distribution. The weights are normalized such that $\sum_{k=1}^{K} w_k = 1$. $z_{max}$ is the maximum redshift of the distribution, which is typically set to the maximum observed redshift in the data.
+
+The mixture of Beta distributions model offers several advantages over other commonly used parametric forms in cosmology. For example, compared to Gaussian distributions, the mixture of Beta distributions model is more flexible and can capture a wider range of shapes, including multi-modal distributions. It is also bounded at 0, which is important for modeling the redshift distribution of weak lensing source galaxies.
 
 
 \bibliography{bib}
