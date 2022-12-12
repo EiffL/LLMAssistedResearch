@@ -6,7 +6,7 @@
 \begin{document}
 
 % Title
-\title{Who Needs Photo-z? A Variational Approach to Inferring the Redshift Distribution of Weak Lensing Source Galaxies in 3x2pt Analyses}
+\title{Who Needs Photo-z? A Variational Approach to Inferring the Redshift Distribution of Weak Lensing Source Galaxies in 3x2pt Analyses Without Photometric Redshifts}
 
 % Author list
 \author{\href{https://github.com/EiffL}{@eiffl}}
@@ -35,13 +35,58 @@ We apply our method to simulated data from the Dark Energy Survey Year 1 (DES Y1
 
 \subsection{3x2pt Analysis framework}
 
-Our analysis is based on the standard 3x2pt framework, which involves measuring the three-point correlations between the cosmic shear, galaxy clustering, and galaxy-galaxy lensing observables (Kilbinger et al., 2017; Krause et al., 2017). The cosmic shear signal is obtained from the shapes of background galaxies that are distorted by the gravitational effects of foreground matter, such as galaxies and dark matter (Bartelmann \& Schneider, 2001). The galaxy clustering signal is obtained from the spatial distribution of galaxies, which is sensitive to the underlying matter distribution (Peebles, 1980). The galaxy-galaxy lensing signal is obtained from the correlations between the shapes of background galaxies and the positions of foreground galaxies, which provides information about the matter distribution along the line of sight (Bartelmann \& Schneider, 2001).
+The 3x2pt methodology is a statistical framework for analyzing weak gravitational lensing, galaxy clustering, and galaxy-galaxy lensing measurements in order to constrain cosmological parameters. In this section, we describe the mathematical formulae used to compute the cosmic shear, galaxy clustering, and galaxy-galaxy angular power spectra, $C_\ell$, which are the main observables in a 3x2pt analysis.
 
-To model the cosmic shear and galaxy clustering observables, we assume that the galaxy distribution is biased with respect to the underlying matter distribution, and we use the linear galaxy bias model to describe this bias (Mo et al., 2010). We also assume that the intrinsic shapes of galaxies are aligned with the matter distribution, and we use the nonlinear alignment (NLA) model to describe this alignment (Blazek et al., 2011; Blazek et al., 2015). Finally, we allow for residual multiplicative shear bias, which can arise from systematic errors in the measurement of galaxy shapes (Cropper et al., 2013; Kohlinger et al., 2017).
+The cosmic shear power spectrum, $C_\ell^{\gamma\gamma}$, is a measure of the statistical correlations between the shapes of distant galaxies, and is given by
+\begin{equation}
+C_\ell^{\gamma\gamma} = \int_0^{z_s} \mathrm{d}z, \frac{W^2(z)}{H(z)} P_{\delta\delta}\left(k = \frac{\ell + 1/2}{\chi(z)}, z\right),
+\end{equation}
+where $z_s$ is the maximum redshift of the source galaxies, $W(z)$ is the lensing weight function, $H(z)$ is the Hubble parameter, $\chi(z)$ is the comoving distance to redshift $z$, and $P_{\delta\delta}(k, z)$ is the matter power spectrum at wavenumber $k$ and redshift $z$.
 
-For the cosmic shear observable, we use the Limber approximation (Limber, 1954) to compute the angular power spectrum, which is given by:
-$$C_{\ell}^{ij} = \int dz \frac{W_i(z)W_j(z)}{H(z)} P_{\delta\delta}\left(k=\frac{\ell+1/2}{\chi(z)},z\right)$$
-where $C_{\ell}^{ij}$ is the angular power spectrum, $W_i(z)$ is the redshift distribution of source galaxies in the $i$th tomographic bin, $H(z)$ is the Hubble parameter, $P_{\delta\delta}(k,z)$ is the matter power spectrum, $\chi(z)$ is the comoving distance to redshift $z$, and $\ell$ is the angular multipole.
+The galaxy angular power spectrum, $C_\ell^{gg}$, is a measure of the statistical correlations between the positions of galaxies on the sky, and is given by
+\begin{equation}
+C_\ell^{gg} = \int_0^{z_s} \mathrm{d}z, \frac{n_g^2(z)}{H^2(z)} b^2(z) P_{\delta\delta}\left(k = \frac{\ell + 1/2}{\chi(z)}, z\right),
+\end{equation}
+where $n_g(z)$ is the number density of galaxies as a function of redshift, $b(z)$ is the galaxy bias, and $P_{\delta\delta}(k, z)$ is the matter power spectrum as defined above.
+
+The galaxy-galaxy lensing angular power spectrum, $C_\ell^{g\kappa}$, is a measure of the statistical correlations between the positions of galaxies and the gravitational lensing convergence field, and is given by
+\begin{equation}
+C_\ell^{g\kappa} = \int_0^{z_s} \mathrm{d}z, \frac{n_g(z)}{H(z)} b(z) \frac{\chi(z) - \chi(z_s)}{\chi(z_s)} P_{\delta\delta}\left(k = \frac{\ell + 1/2}{\chi(z)}, z\right),
+\end{equation}
+where $n_g(z)$, $b(z)$, and $P_{\delta\delta}(k, z)$ are defined as above.
+
+These formulae are derived from the general expressions for the cosmic shear, galaxy clustering, and galaxy-galaxy lensing power spectra, which can be found in Kilbinger (2015) and Joachimi et al. (2020). In a 3x2pt analysis, these power spectra are measured from the data and used to constrain cosmological parameters, such as the matter density, $\Omega_m$, and the amplitude of matter fluctuations, $\sigma_8$. For a more detailed discussion of the 3x2pt methodology and its applications, see Hildebrandt et al. (2018) and Köhlinger et al. (2019).
+
+%
+%To model the cosmic shear and galaxy clustering observables, we assume that the galaxy distribution is biased with respect to the underlying matter distribution, and we use the linear galaxy bias model to describe this bias (Mo et al., 2010). We also assume that the intrinsic shapes of galaxies are aligned with the matter distribution, and we use the nonlinear alignment (NLA) model to describe this alignment (Blazek et al., 2011; Blazek et al., 2015). Finally, we allow for residual multiplicative shear bias, which can arise from systematic errors in the measurement of galaxy shapes (Cropper et al., 2013; Kohlinger et al., 2017).
+%
+%For the cosmic shear observable, we use the Limber approximation (Limber, 1954) to compute the angular power spectrum, which is given by:
+%$$C_{\ell}^{ij} = \int dz \frac{W_i(z)W_j(z)}{H(z)} P_{\delta\delta}\left(k=\frac{\ell+1/2}{\chi(z)},z\right)$$
+%where $C_{\ell}^{ij}$ is the angular power spectrum, $W_i(z)$ is the redshift distribution of source galaxies in the $i$th tomographic bin, $H(z)$ is the Hubble parameter, $P_{\delta\delta}(k,z)$ is the matter power spectrum, $\chi(z)$ is the comoving distance to redshift $z$, and $\ell$ is the angular multipole.
+
+\subsubsection{3x2pt Systematics Modeling}
+
+In a 3x2pt analysis, it is important to carefully model and account for potential sources of systematic error, such as intrinsic alignments of galaxies and uncertainties in the galaxy bias. In this subsection, we describe the systematics modeling approach used in the DES Y1 analysis (Köhlinger et al., 2019), which is based on the NLA model for intrinsic alignments and a redshift-dependent linear bias model.
+
+The NLA model is a phenomenological model that describes the alignment of galaxies with the large-scale structure of the universe (Bridle \& King, 2007; Joachimi et al., 2013). The model assumes that the intrinsic alignment of galaxies is proportional to the local tidal field.%, and can be expressed as
+%\begin{equation}
+%\gamma_\mathrm{int} = A \sum_n a_n \left( \frac{k}{k_0} \right)^n P_\mathrm{NL}(k),
+%\end{equation}
+%where $A$ is the amplitude of the intrinsic alignment signal, $a_n$ are the coefficients of the power series expansion, $k$ is the wavenumber, $k_0$ is a reference wavenumber, and $P_\mathrm{NL}(k)$ is the non-linear matter power spectrum. 
+The NLA model has been widely used in weak lensing analyses, and has been shown to provide a good description of the intrinsic alignment signal in the data (Kirk et al., 2015; Köhlinger et al., 2019).
+
+In addition to intrinsic alignments, another potential source of systematic error in weak lensing measurements is residual multiplicative shear systematics. These are systematic errors in the estimated shear signal that arise from imperfections in the measurement and calibration process (Heymans et al., 2012). In order to account for these effects, we include a multiplicative bias term in our model, which is defined as
+\begin{equation}
+m_i = \frac{\gamma_\mathrm{meas}(i)}{\gamma_\mathrm{true}(i)} - 1,
+\end{equation}
+where $\gamma_\mathrm{meas}(i)$ and $\gamma_\mathrm{true}(i)$ are the measured and true shear signal in redshift bin $i$, respectively. The multiplicative bias term is included as a nuisance parameter in the MCMC analysis, and is marginalized over to obtain the final cosmological constraints. This allows us to account for residual multiplicative shear systematics and obtain more accurate cosmological constraints.
+
+The redshift-dependent linear bias model is a simple model that describes the relationship between the galaxy overdensity, $\delta_g$, and the matter overdensity, $\delta_m$, as a function of redshift. The model assumes that the galaxy bias is a linear function of the matter overdensity, and can be expressed as
+\begin{equation}
+\delta_g(z) = b(z)\delta_m(z),
+\end{equation}
+where $b(z)$ is the redshift-dependent linear bias. The bias is typically modeled as a polynomial function of redshift, and is fit to the data using the galaxy clustering and galaxy-galaxy lensing observables.
+
 
 
 \bibliography{bib}
